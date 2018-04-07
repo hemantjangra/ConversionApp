@@ -1,0 +1,17 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Hello React</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="content"></div>
+    <script src="~/Scripts/react.js"></script>
+    <script src="~/Scripts/react-dom.js"></script>
+    <script src="~/Scripts/remarkable.js"></script>
+    <script src="@Url.Content("~/Scripts/Convert.jsx")"></script>
+</body>
+</html>
