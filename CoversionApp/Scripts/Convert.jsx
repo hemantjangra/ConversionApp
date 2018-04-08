@@ -2,12 +2,14 @@
 
     getInitialState: function () {
         return {
-            result: {}
+            result: {},
+            loading: false,
         }
     },
 
     updateState(e) {
         e.preventDefault();
+        this.setState({ loading: true });
         var loadIcon = document.getElementById('loadingimage');
         var xhr = new XMLHttpRequest();
         var inputname = document.getElementById('inname').value;
@@ -21,7 +23,7 @@
         //xhr.setRequestHeader("Connection", "close");
         xhr.onload = function () {
             var response = JSON.parse(xhr.responseText);
-            this.setState({ result: response.Data.outPut });
+            this.setState({ result: response.Data.outPut, loading: false });
 
         }.bind(this);
         xhr.send(params);
@@ -29,7 +31,9 @@
     },
 
     render: function () {
-        const { logo } = this.props;
+
+        const { result, loading } = this.state;
+
         return (
             <div className="commentBox">
                 <div class="row">
@@ -54,6 +58,7 @@
                     <div class="col-sm-8">
                         <label id="outamount">Converted Amount: {this.state.result.Amount}</label>
                     </div>
+                    {loading ? (<p>Loading...</p>) : null}
                 </div>
             </div>
         );
