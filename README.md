@@ -26,3 +26,4 @@ User Interface page can be located on address 'http://local.conversionapp.com/Do
 
 Entire code base for React can be found by following physical path '/CoversionApp/CoversionApp/Scripts/Convert.jsx'
   
+PS To use this app by simpy pressing F5 Button, please run conversionapi proect and then conversionapp project and make changes to url section in file Covert.jsx on section '<ConversionBox url="http://local.conversionapi.com/api/conversion/ConvertNumtoAlpha" />'
